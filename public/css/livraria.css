@@ -1,0 +1,17 @@
+body{
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.dados-livro{
+    margin: 10px;
+    font-size: 20px;
+}
+
+.inputs{
+    font-size: 20px;
+}
+
+.button{
+    font-size: 20px;
+}
+
