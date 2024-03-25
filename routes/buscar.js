@@ -21,18 +21,18 @@ router.get('/', (req, res) => {
             res.render('index', { livro_encontrado: null, error: 'Bloco vazio! digite um bloco de livro válido' });
         }
 
-        // PARTE DE CONSULTA COM ERRO
-        bd_livros.consultar('SELECT * FROM livros WHERE titulo = ?', [titulo], (err, resultados) => {
+        console.log('Titulo: ', titulo);
+        bd_livros.consultar(`SELECT * FROM livros WHERE titulo = '${titulo}'`, (err, resultados) => {
             if (err) {
                 console.error('Erro ao buscar livros:', err);
                 res.render('index', { livro_encontrado: null, error: 'Erro ao buscar livros.' });
                 return;
             }
-    
+
             if (resultados.length > 0) {
                 res.render('index', { livro_encontrado: resultados, error: null });
             } else {
-                res.render('index', { livro_encontrado: null, error: 'Nenhum livro encontrado.' });
+                res.render('index', { livro_encontrado: null, error: 'Livro não encontrado.' });
             }
         });
     } else if (campo_pesquisa === 'ano') {
