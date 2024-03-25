@@ -21,7 +21,6 @@ router.get('/', (req, res) => {
             res.render('index', { livro_encontrado: null, error: 'Bloco vazio! digite um bloco de livro válido' });
         }
 
-        console.log('Titulo: ', titulo);
         bd_livros.consultar(`SELECT * FROM livros WHERE titulo = '${titulo}'`, (err, resultados) => {
             if (err) {
                 console.error('Erro ao buscar livros:', err);
